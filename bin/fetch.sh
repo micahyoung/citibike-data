@@ -5,7 +5,7 @@ FILE=`date +%s`.json
 
 cd $JSONDIR
 curl --retry 30 http://appservices.citibikenyc.com/v1/station/list > $FILE
-ls *.json > ../index.txt
+ls *.json | sed 's/\.json$//' > ../timestamps.txt
 cd ../
 git add -A .
 git commit -m`date +%s`
